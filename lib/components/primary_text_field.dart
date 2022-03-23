@@ -10,6 +10,7 @@ class PrimaryTextField extends StatelessWidget {
   final bool withTogglePasswordIcon;
   final VoidCallback? onPasswordIconPresssed;
   final Widget? prefixIcon;
+  final Widget? suffixxIcon;
   final Color? bgColor;
   final List<TextInputFormatter>? inputFormatters;
   final bool? withoutLabel;
@@ -31,7 +32,7 @@ class PrimaryTextField extends StatelessWidget {
     this.errorText,
     this.controller,
     this.inputFormatters,
-    this.textInputType,
+    this.textInputType, this.suffixxIcon,
   }) : super(key: key);
 
   @override
@@ -81,11 +82,15 @@ class PrimaryTextField extends StatelessWidget {
           errorText: errorText,
           hintStyle: TextStyle(color: Colors.grey[400]),
           suffixIcon: Visibility(
-            visible: withTogglePasswordIcon,
-            child: IconButton(
-              icon:
-                  Icon(!obscureText ? Icons.visibility : Icons.visibility_off),
-              onPressed: onPasswordIconPresssed,
+            visible: suffixxIcon==null,
+            replacement: suffixxIcon!,
+            child: Visibility(
+              visible: withTogglePasswordIcon,
+              child: IconButton(
+                icon:
+                    Icon(!obscureText ? Icons.visibility : Icons.visibility_off),
+                onPressed: onPasswordIconPresssed,
+              ),
             ),
           ),
           enabledBorder: border,

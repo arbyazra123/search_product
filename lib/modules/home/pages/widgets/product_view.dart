@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:search_product/components/primary_text_field.dart';
 import 'package:search_product/modules/authentication/bloc/auth_bloc.dart';
 import 'package:search_product/modules/product/detail_product_page.dart';
+import 'package:search_product/modules/scan/scan_page.dart';
 
 import '../../bloc/product_bloc.dart';
 
@@ -42,6 +43,16 @@ class ProductView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: PrimaryTextField(
                   labelText: "Search Product",
+                  suffixxIcon: IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => ScanPage()));
+                    },
+                    icon: Icon(
+                      Icons.qr_code_scanner,
+                      color: Colors.white,
+                    ),
+                  ),
                   onChanged: (v) {
                     context.read<ProductBloc>().add(SearchProduct(v, result));
                   },
