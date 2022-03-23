@@ -74,6 +74,7 @@ class PrimaryTextField extends StatelessWidget {
         keyboardType: textInputType,
         obscureText: obscureText,
         inputFormatters: inputFormatters,
+        style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
           hintText: hintText,
