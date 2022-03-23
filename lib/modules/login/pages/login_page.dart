@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Color(0xFF212332),
       appBar: AppBar(
         title: Text("Login"),
+        backgroundColor: Color(0xFF212332),
       ),
       body: SingleChildScrollView(
         child: Padding(
