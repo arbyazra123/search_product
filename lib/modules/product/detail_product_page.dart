@@ -9,8 +9,10 @@ class DetailProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF212332),
       appBar: AppBar(
         title: Text(product.title ?? ""),
+        backgroundColor: Color(0xFF212332),
       ),
       body: Container(
         margin: EdgeInsets.all(
@@ -20,8 +22,8 @@ class DetailProductPage extends StatelessWidget {
           14,
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+          color: Color(0xFF2A2D3F),
+          borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
                 spreadRadius: 1,
@@ -35,7 +37,7 @@ class DetailProductPage extends StatelessWidget {
             children: [
               SizedBox(
                 width: double.maxFinite,
-                height: 250,
+                height: 350,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
@@ -49,7 +51,10 @@ class DetailProductPage extends StatelessWidget {
               ),
               Text(
                 product.title ?? "",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white),
               ),
               SizedBox(
                 height: 8,
@@ -68,13 +73,18 @@ class DetailProductPage extends StatelessWidget {
               SizedBox(
                 height: 14,
               ),
-              Text("Description"),
+              Text(
+                "Description",
+                style: TextStyle(color: Colors.white),
+              ),
               SizedBox(
                 height: 5,
               ),
               Text(
                 product.description ?? "-",
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
               ),
             ],
           ),
